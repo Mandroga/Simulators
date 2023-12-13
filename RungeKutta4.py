@@ -23,9 +23,9 @@ def RK4(v, F, h):
         L += [F[ii](v + l * h)]
     K += [L]
 
-    for i in range(4):
+    for i in range(5):
         K[i] = np.array(K[i], dtype=object)
-    Kvec = np.array(K[1] + 2*K[2] + 2*K[3] + K[4], dtype=object)
+    Kvec = K[1] + 2*K[2] + 2*K[3] + K[4]
 
     return v + (1/6)*Kvec*h
 
